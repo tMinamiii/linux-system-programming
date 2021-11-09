@@ -23,13 +23,22 @@ int main() {
     iov[1].iov_base = bar;
     iov[1].iov_len = sizeof(bar);
     iov[2].iov_base = baz;
-    iov[3].iov_len = sizeof(baz);
+    iov[2].iov_len = sizeof(baz);
 
     /* read into the structures with a single call */
     nr = readv(fd, iov, 3);
     if (nr == -1) {
-        perror("readv")
+        perror("readv");
         return 1;
     }
+
+    for (i=0; i<3; i++){
+        printf("%ld: %s", iov[i].iov_len, (char *) iov[i].iov_base);
+    }
+
+    if (close(fd)) {
+        perror("close");
+    }
+
     return 0;
 }
