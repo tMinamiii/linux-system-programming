@@ -26,7 +26,7 @@ int main() {
   /* fill out three iovec structures */
   for (i = 0; i < 3; i++) {
     iov[i].iov_base = buf[i];
-    iov[i].iov_len = strlen(buf[i]) + 1;
+    iov[i].iov_len = strlen(buf[i]);
   }
 
   /* with a single call, write them all out */
