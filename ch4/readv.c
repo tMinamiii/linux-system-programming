@@ -31,5 +31,14 @@ int main() {
         perror("readv");
         return 1;
     }
+
+    for (i=0; i<3; i++){
+        printf("%ld: %s", iov[i].iov_len, (char *) iov[i].iov_base);
+    }
+
+    if (close(fd)) {
+        perror("close");
+    }
+
     return 0;
 }
