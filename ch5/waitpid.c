@@ -34,5 +34,6 @@ int main() {
     }
 
     waitprocess();
+    sleep(1);
     waitprocess();
 }
