@@ -3,7 +3,9 @@
 
 int main() {
   int ret;
-  ret = execl("/usr/local/bin/vim", "vim", "./hooks.txt", NULL);
+  printf("pid=%d\n", getpid());
+  sleep(10);
+  ret = execl("/usr/bin/vim", "vim", "hooks.txt", NULL);
   if (ret == -1) {
     perror("execl");
   }

@@ -25,15 +25,15 @@ void waitprocess() {
 
 int main() {
   if (!fork()) {
-    printf("fork1 = %d gpid = %d\n", getpid(), getpgid(getpid()));
+    printf("fork1 pid = %d pgid = %d\n", getpid(), getpgid(getpid()));
     return 1;
   }
   if (!fork()) {
-    printf("fork2 = %d gipd = %d\n", getpid(), getpgid(getpid()));
+    printf("fork2 pid = %d pgid = %d\n", getpid(), getpgid(getpid()));
     return 1;
   }
 
   waitprocess();
-  sleep(1);
+  usleep(500 * 1000);
   waitprocess();
 }
