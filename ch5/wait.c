@@ -10,8 +10,8 @@ int main(void) {
   pid_t pid;
   if (!fork()) {
     // 子プロセスの処理
-    abort();
-    // return 1;
+    // abort();
+    return 1;
   }
 
   pid = wait(&status);
