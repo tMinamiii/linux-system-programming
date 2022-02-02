@@ -33,11 +33,16 @@ void waitprocess(pid_t pid) {
 }
 
 int main() {
-  pid_t pid1, pid2;
+  pid_t pid1, pid2, pid3;
   pid1 = fork();
   if (!pid1) {
     printf("fork1 pid=%d ppid=%d pgid=%d\n", getpid(), getppid(),
            getpgid(getpid()));
+    pid3 = fork();
+    if (!pid3) {
+      printf("fork3 pid=%d ppid=%d pgid=%d\n", getpid(), getppid(),
+             getpgid(getpid()));
+    }
     sleep(5);
     return 1;
   } else {
@@ -52,5 +57,6 @@ int main() {
 
   waitprocess(pid1);
   waitprocess(pid2);
+  waitprocess(pid3);
   return 0;
 }
