@@ -6,25 +6,30 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-int main() {
+int main()
+{
   void *p;
   int fd;
 
   fd = open("/dev/zero", O_RDWR);
-  if (fd < 0) {
+  if (fd < 0)
+  {
     perror("open");
     return -1;
   }
 
   p = mmap(NULL, getpagesize(), PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
-  if (p == MAP_FAILED) {
+  if (p == MAP_FAILED)
+  {
     perror("mmap");
-    if (close(fd)) {
+    if (close(fd))
+    {
       perror("close");
     }
   }
 
-  if (close(fd)) {
+  if (close(fd))
+  {
     perror("close");
   }
 

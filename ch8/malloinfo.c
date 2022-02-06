@@ -1,6 +1,7 @@
 #include <malloc.h>
 
-void print_malloinfo() {
+void print_malloinfo()
+{
   struct mallinfo m;
   m = mallinfo();
   printf("size of data segment used by malloc: %d\n", m.arena);
@@ -16,7 +17,8 @@ void print_malloinfo() {
   printf("\n");
 }
 
-int main() {
+int main()
+{
   char *buf;
   size_t len = 128;
   buf = malloc(len);
