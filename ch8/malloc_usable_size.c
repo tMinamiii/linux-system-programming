@@ -1,7 +1,6 @@
 #include <malloc.h>
 
-int main()
-{
+int main() {
   // int ret;
   // ret = mallopt(M_MMAP_THRESHOLD, 64);
   // if (!ret)
@@ -11,8 +10,7 @@ int main()
   size_t size;
   char *buf;
   buf = malloc(len);
-  if (!buf)
-  {
+  if (!buf) {
     perror("malloc");
     return -1;
   }
